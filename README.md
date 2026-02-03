@@ -1,4 +1,4 @@
-# Advanced Business Analytics - Virtual Reality Demo Project
+# Virtual Reality Demo Project (ABA 2026)
 
 A Unity XR demo project showcasing **controller-based** and **hand-tracking** interactions using Unity’s XR tooling + sample scenes.
 
