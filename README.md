@@ -1,4 +1,4 @@
-# BAVR_2026_DemoProject
+# Advanced Business Analytics 2026 - Virtual Reality Demo Project
 
 A Unity XR demo project showcasing **controller-based** and **hand-tracking** interactions using Unity’s XR tooling + sample scenes.
 
