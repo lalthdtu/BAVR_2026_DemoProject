@@ -57,7 +57,7 @@ Disable the simulator:
 
 ---
 
-## Exercise: XR Interaction Toolkit Basics  
+## Exercise 1: XR Interaction Toolkit Basics  
 ### XR Button toggles a TextMeshPro label (World Space UI)
 
 Open the project, start a demo scene, and experiment with XR interactions. Then add a simple XR UI button that toggles a TextMeshPro label when pressed.
@@ -173,7 +173,7 @@ public class TextSwitcher : MonoBehaviour
 
 ---
 
-# Exercise: Build an XR Interaction Toolkit sample scene to Meta Quest (Android)
+## Exercise 2: Build an XR Interaction Toolkit sample scene to Meta Quest (Android)
 
 You’ll take one of the **XR Interaction Toolkit** sample scenes (**Starter Assets** or **Hands Demo**) and deploy it to a **Meta Quest** headset as an **Android** build using **OpenXR**.
 
