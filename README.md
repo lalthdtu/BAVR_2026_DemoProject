@@ -170,3 +170,132 @@ public class TextSwitcher : MonoBehaviour
 - Enter Play Mode.
 - Press the button in XR.
 - The label should toggle between **Hello!** and **Goodbye!**.
+
+---
+
+# Exercise: Build an XR Interaction Toolkit sample scene to Meta Quest (Android)
+
+You’ll take one of the **XR Interaction Toolkit** sample scenes (**Starter Assets** or **Hands Demo**) and deploy it to a **Meta Quest** headset as an **Android** build using **OpenXR**.
+
+## Goal
+
+- Switch the project to the **Meta Quest / Android** build target
+- Enable **OpenXR** with **Meta Quest** features + the right interaction profile
+- **Build & Run** on-device (Quest)
+
+> Meta’s current recommended path for Quest in Unity is **OpenXR** with the **Meta Quest feature group**.
+
+---
+
+## 1) Prereqs (one-time)
+
+### A) Unity install modules
+
+In **Unity Hub**, ensure your **Unity 6.3+** editor install includes:
+
+- Android Build Support  
+- OpenJDK  
+- Android SDK & NDK tools  
+
+> These are required to produce APKs/AABs.
+
+### B) Headset setup
+
+On your **Quest**:
+
+- Enable **Developer Mode**
+- Enable **USB debugging**
+- Connect via **USB-C** and accept the debugging prompt in-headset
+
+---
+
+## 2) Choose a sample scene to build
+
+Pick one:
+
+**Controller:**
+- `Samples/XR Interaction Toolkit/3.3.1/Starter Assets/DemoScene.unity`
+
+**Hands:**
+- `Samples/XR Interaction Toolkit/3.3.1/Hands Interaction Demo/HandsDemoScene.unity`
+
+Open the scene, then:
+
+- **File → Build Profiles / Build Settings → Add Open Scenes**  
+  (so the scene is included in the build)
+
+---
+
+## 3) Switch to the Meta Quest / Android build target
+
+In Unity:
+
+- **File → Build Profiles**
+- Select **Meta Quest** platform if available (Unity 6.x), then **Enable / Switch Platform**  
+  - If you don’t see **Meta Quest**, switch to **Android**.
+
+---
+
+## 4) Enable OpenXR for Quest
+
+Go to:
+
+- **Edit → Project Settings → XR Plug-in Management**
+
+### A) Android tab: enable OpenXR + Meta Quest feature group
+
+- Under **Plug-in Providers (Android)**: enable **OpenXR**
+- Enable the **Meta Quest feature group** (wording varies slightly by package/version)
+
+### B) OpenXR settings: verify Meta Quest Support features
+
+Still in **Project Settings → XR Plug-in Management → OpenXR**, ensure **Meta Quest support** features are enabled/configured (Meta’s docs call this out under “Meta Quest Support”).
+
+### C) Interaction profile (controllers)
+
+In the **OpenXR (Android)** section, add/enable:
+
+- **Oculus Touch Controller Profile**
+
+> If you’re building the **Hands Demo**, keep your **XR Hands + Hands Interaction Demo** setup as-is; **OpenXR still needs to be enabled** for Quest builds.
+
+---
+
+## 5) Player / Android build settings
+
+Go to:
+
+- **Edit → Project Settings → Player**
+
+Common “must not forget” items for Quest Android builds:
+
+- **Active Input Handling:** keep consistent with your project (many XR setups use the **Input System**)
+- **Scripting Backend:** **IL2CPP**
+- **Target Architectures:** **ARM64**
+
+> Exact labels vary by Unity version, but these are the typical Quest requirements.
+
+---
+
+## 6) Build & Run on the headset
+
+1. Connect Quest via USB (**USB debugging accepted**).
+2. Open **File → Build Profiles / Build Settings**
+3. Confirm your sample scene is in **Scenes In Build**
+4. Click **Build And Run**
+5. Choose an output folder (Unity will generate an APK and install it)
+
+If it installs successfully, the app should appear in the headset under:
+
+- **Apps → Unknown Sources** (location can vary by OS version)
+
+---
+
+## Quick check
+
+Launch the app on the Quest and verify:
+
+- Head tracking works
+- Controllers appear (**Starter Assets**) *or* hands appear (**Hands Demo**)
+- You can interact with objects/UI in the scene
+
